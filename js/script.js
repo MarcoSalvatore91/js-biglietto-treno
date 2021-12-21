@@ -16,6 +16,7 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 // 6- Applicare sconto del 40% per gli over 65
 // 7- Prezzo finale in forma umana (massimo due decimali)
 
+
 // 1- Chiedere all'utente quanti chilometri dovrà percorrere
 const kilometer = parseInt(prompt ('Quanti km dovrai percorrere?', '20').trim());
 // 2- Chiedere l'età del passeggero
@@ -24,10 +25,14 @@ const userAge = parseInt(prompt ('Quanti anni hai?', '30').trim());
 console.log('kilometer: ', kilometer);
 console.log('userAge: ', userAge);
 
+const under = 18;
+const over = 65;
 // 3- Controllare che siano inseriti solamente caratteri numerici
 //! Compilare correttamente i campi richiesti
 if (isNaN(kilometer) || isNaN(userAge)) {
     alert("Attenzione! E' permesso inserire solamente caratteri numerici!");
-}
-
-// 4- Calcolare il prezzo in base a quanti chilometri percorrerà
+}   else {  
+    // 4- Calcolare il prezzo in base a quanti chilometri percorrerà
+    const price = kilometer * 0.21;
+    console.log('Il prezzo del biglietto è di: ', price,'€')
+    }
