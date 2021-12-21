@@ -25,14 +25,21 @@ const userAge = parseInt(prompt ('Quanti anni hai?', '30').trim());
 console.log('kilometer: ', kilometer);
 console.log('userAge: ', userAge);
 
-const under = 18;
-const over = 65;
 // 3- Controllare che siano inseriti solamente caratteri numerici
 //! Compilare correttamente i campi richiesti
 if (isNaN(kilometer) || isNaN(userAge)) {
     alert("Attenzione! E' permesso inserire solamente caratteri numerici!");
-}   else {  
+    
     // 4- Calcolare il prezzo in base a quanti chilometri percorrerà
-    const price = kilometer * 0.21;
-    console.log('Il prezzo del biglietto è di: ', price,'€')
+    const price = (kilometer * 0.21);
+    const underDiscount = (price * 20 / 100);
+    const overDiscount = (price * 65 / 100);
+    
+    if (userAge >= 18 || userAge <= 65) {
+        console.log('Il prezzo del biglietto è di: ', price,'€');
+    } else (userAge < 18); {
+        console.log('Il prezzo del biglietto è di: ', (price - underDiscount),'€');
+    } else (userAge > 65); {
+        console.log('Il prezzo del biglietto è di: ', (price - overDiscount),'€');
     }
+}   
