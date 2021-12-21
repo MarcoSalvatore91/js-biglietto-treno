@@ -29,17 +29,28 @@ console.log('userAge: ', userAge);
 //! Compilare correttamente i campi richiesti
 if (isNaN(kilometer) || isNaN(userAge)) {
     alert("Attenzione! E' permesso inserire solamente caratteri numerici!");
-    
+} else  {
+
     // 4- Calcolare il prezzo in base a quanti chilometri percorrerà
     const price = (kilometer * 0.21);
-    const underDiscount = (price * 20 / 100);
-    const overDiscount = (price * 65 / 100);
-    
-    if (userAge >= 18 || userAge <= 65) {
+    const underDiscount = (price - (price * 20 / 100));
+    const overDiscount = (price - (price * 40 / 100));
+
+    // 5- Applicare sconto del 20% per i minorenni
+    if (userAge < 18) {
+        console.log('Il prezzo del biglietto è di: ', underDiscount,'€');
+        document.getElementById('ticket-price').innerText = `Il prezzo del biglietto scontato è di ${underDiscount}`;
+    // 6- Applicare sconto del 40% per gli over 65
+    } else if (userAge > 65) {
+        console.log('Il prezzo del biglietto è di: ', overDiscount,'€');
+        document.getElementById('ticket-price').innerText = `Il prezzo del biglietto scontato è di ${overDiscount}`;
+    } else {
         console.log('Il prezzo del biglietto è di: ', price,'€');
-    } else (userAge < 18); {
-        console.log('Il prezzo del biglietto è di: ', (price - underDiscount),'€');
-    } else (userAge > 65); {
-        console.log('Il prezzo del biglietto è di: ', (price - overDiscount),'€');
+        document.getElementById('ticket-price').innerText = `Il prezzo del biglietto è di ${price}`;
     }
-}   
+}
+
+// 7- Prezzo finale in forma umana (massimo due decimali)
+
+
+
